@@ -1,0 +1,63 @@
+\documentclass[a4paper,landscape]{minimal}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[margin=0mm,right=27mm,bottom=0mm]{geometry}
+
+\newcount\badgerows
+\newcount\badgecolumns
+\newdimen\badgewidth
+\newdimen\badgeheight
+\newdimen\badgemargin
+\newdimen\badgetextwidth
+
+\badgerows = 4
+\badgecolumns = 3
+\badgemargin = 5mm
+
+\badgewidth = \dimexpr \textwidth / \badgecolumns - 0.1pt \relax
+\badgeheight = \dimexpr \textheight / \badgerows - 0.1pt \relax
+\badgetextwidth = \dimexpr \badgewidth - 2\badgemargin \relax
+
+\usepackage{csvsimple}
+
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+
+\begin{document}
+
+\noindent
+\csvreader[after line={\hfil\allowbreak}, late after last line={\hfill}]{participants.csv}{Name=\name, Affiliation=\affil, Country=\country}{%
+  \begin{tikzpicture}[line width=0.1pt, inner sep=0pt, outer sep=0pt]
+    \node (box) {
+      \makebox[\badgewidth][c]{
+      \begin{minipage}[t][\badgeheight][c]{\badgetextwidth}
+        \centering
+
+        \fontsize{22pt}{24pt}\selectfont
+        \vfil
+        \textbf{\name}
+
+        \fontsize{14pt}{16pt}\selectfont
+        \vfil
+        \affil
+        \\
+        \country
+        \vfil
+        \null
+      \end{minipage}}
+    };
+    
+    \begin{scope}[on background layer]
+      \node[opacity=0.3] at (box.center) {\includegraphics[width=80mm]{image}};
+    \end{scope}
+
+    \draw (box.north west) ++(0.1, 0) -| ++(-0.1, -0.1);
+    \draw (box.north east) ++(-0.1, 0) -| ++(0.1, -0.1);
+    \draw (box.south west) ++(0.1, 0) -| ++(-0.1, 0.1);
+    \draw (box.south east) ++(-0.1, 0) -| ++(0.1, 0.1);
+  \end{tikzpicture}%
+}
+
+
+\end{document}
