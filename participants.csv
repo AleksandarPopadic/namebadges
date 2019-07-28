@@ -1,8 +1,8 @@
 Name, Affiliation, Country
 Name Surname, Affiliated Institution, Country
-Long Name\\ Extra Long Surname, Affiliated Institution, Country
-{\fontsize{18pt}{20pt}\selectfont Long Name\\ Extra Extra Long Surname}, Affiliated Institution, Country
-Name Surname, Affiliated Institution, Country
+Long Name Long Surname, Automatic Line Break, Country
+Long Name\\ Long Surname, Manual Line Break, Country
+{\fontsize{18pt}{20pt}\selectfont Long Name\\ Extra Extra Long Surname}, Reduced Font Size, Country
 Name Surname, Affiliated Institution, Country
 Name Surname, Affiliated Institution, Country
 Name Surname, Affiliated Institution, Country
