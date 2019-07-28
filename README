@@ -1,3 +1,5 @@
 A simple template for creating conference name badges.
 
 The size of the badges is determined by the right/bottom margin parameters and the badgerows/badgecolumns variables.
+
+If needed, line breaks can be added manually to the csv file. Font can also be changed for a single badge in the csv file. See the sample participants.csv and example.pdf files.
